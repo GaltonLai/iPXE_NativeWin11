@@ -1,17 +1,12 @@
 #!ipxe
-imgfree
 dhcp
 
 set base_url https://raw.githubusercontent.com/GaltonLai/iPXE_NativeWin11/main
 
-<<<<<<< HEAD
-kernel ${base_url}/wimboot || goto retry
+kernel ${base_url}/wimboot --pe || goto retry
 initrd ${base_url}/bootmgr bootmgr || goto retry
 initrd ${base_url}/BCD BCD || goto retry
 initrd ${base_url}/boot.sdi boot.sdi || goto retry
 initrd -n boot.wim ${base_url}/boot.wim || goto retry
-=======
-sanboot ${base_url}/Win11Native.iso
->>>>>>> fc72568 (sanboot NativeWin11)
 
 boot
