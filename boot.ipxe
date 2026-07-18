@@ -6,7 +6,4 @@ set base_url https://raw.githubusercontent.com/GaltonLai/iPXE_NativeWin11/main
 
 sanboot ${base_url}/Win11Native.iso | goto retry
 
-#kernel ${base_url}/memdisk iso raw | goto retry
-#initrd ${base_url}/Win11Native.iso | goto retry
-
 boot
