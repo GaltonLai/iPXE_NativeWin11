@@ -1,0 +1,10 @@
+#!ipxe
+imgfree
+dhcp
+
+set base_url https://raw.githubusercontent.com/GaltonLai/iPXE_NativeWin11/main
+
+kernel ${base_url}/memdisk iso | goto retry
+initrd ${base_url}/Win11Native.iso | goto retry
+
+boot

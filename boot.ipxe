@@ -1,10 +1,12 @@
 #!ipxe
-imgfree
 dhcp
 
 set base_url https://raw.githubusercontent.com/GaltonLai/iPXE_NativeWin11/main
 
-kernel ${base_url}/memdisk iso | goto retry
-initrd ${base_url}/Win11Native.iso | goto retry
-
+kernel ${base_url}/wimboot rawbcd || goto retry
+initrd ${base_url}/bootmgr bootmgr || goto retry
+initrd ${base_url}/BCD BCD || goto retry
+initrd ${base_url}/boot.sdi boot.sdi || goto retry
+initrd -n boot.wim ${base_url}/boot.wim || goto retry
+imgfree
 boot
