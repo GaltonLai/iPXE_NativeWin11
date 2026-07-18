@@ -3,6 +3,6 @@ dhcp
 
 set base_url https://raw.githubusercontent.com/GaltonLai/iPXE_NativeWin11/main
 
-kernel ${base_url}/wimboot
+kernel ${base_url}/wimboot --pe
 initrd ${base_url}/boot.wim boot.wim
 boot
