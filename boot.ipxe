@@ -3,11 +3,6 @@ dhcp
 
 set base_url https://raw.githubusercontent.com/GaltonLai/iPXE_NativeWin11/main
 
-kernel ${base_url}/wimboot index=1 || goto retry
-initrd ${base_url}/bootmgr bootmgr || goto retry
-initrd ${base_url}/BCD BCD || goto retry
-initrd ${base_url}/boot.sdi boot.sdi || goto retry
-initrd -n boot.wim ${base_url}/boot.wim || goto retry
-imgstat
-prompt
+kernel ${base_url}/vmlinuz quiet norestore || goto retry
+initrd ${base_url}/core.gz || goto retry
 boot
